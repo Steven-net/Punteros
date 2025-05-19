@@ -1,14 +1,16 @@
+//Usando Aritmetica de punteros implemente una funcion para invertir un arreglo de enteros
+
 #include <iostream>
 using namespace std;
 
 void Invertir(int* arr, int n){
-    int inicio = 0;
-    int final = n-1;
+    int* inicio = arr; // puntero que apunta al primer elemento
+    int* final =  arr + n-1; // puntero que apuntas al ultimo elemento 
 
-    while( inicio <= final){
-        swap(*(arr + inicio), *(arr + final));
-        inicio++;
-        final--;
+    while( inicio < final){
+        swap(*inicio, *final);
+        inicio++; // se dezplaza un elemento a la derecha
+        final--; // se desplaza un elemento a la izquierda
     }
 }
 
