@@ -23,7 +23,7 @@ void mostrarCadena(){
 
 // Aplicamos Aritmetica de punteros para la suma
 void sumaArreglo(int arr[5], int n){
-        cout << sizeof(arr) <<endl;
+        
         int suma =0;
         for(int i= 0; i <n ; ++i){
             suma += *(arr + i);
@@ -35,7 +35,6 @@ int main(){
 
     int arr[] = {1,2,3,4,5};
 
-    cout << sizeof(arr) << endl;
     sumaArreglo(arr,5);
 
     int *ptr1 = arr;
@@ -43,15 +42,15 @@ int main(){
 
     cout << ptr2 -ptr1 <<endl;
 
-    cout << arr << endl;
-    cout << &arr[0] <<endl;
+    cout << arr << endl; // Te da la direccion del primer elemento
+    cout << &arr[0] <<endl; // arr == &arr[0]
 
     //sumaArreglo(arr, n);
 
     mostrarCadena();
 
     int t = 2;
-    cout << cuadrado(&t);
+    cout << cuadrado(&t)<<endl;
    
 
 
