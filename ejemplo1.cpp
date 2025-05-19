@@ -14,15 +14,17 @@ void modificaValor(int *p){
 
 void mostrarCadena(){
     const char* m = "Hola Mundo";
-    cout << m << endl; // direccion del primer elemento del arreglo de caracteres (en este caso direccion de H)
-    cout << (void*)m <<endl;
-    cout << &m << endl; 
-    cout << &m[0] <<endl;
-    cout << *m << endl; // imprime H
+// como observacion: el cout tiene una sobrecarga especial para punteros char(como const char*), que interpreta el puntero
+// como el inicio de una cadena de caracteres terminada en '\0'
+    cout << m << endl; // imprime toda la cadena ya que este apunta a una cadena de texto que termina en '\0'
+    cout << (void*)m <<endl; // imprime la direccion de memoria de m (este apunta al primer elemento 'H')
+    cout << &m << endl; // imprime la direccion de memoria de la variable m (podemos decir que &m es de tipo const char**)
+    cout << &m[0] <<endl; // &m[0] es un puntero que apunta al char m[0] por lo que se comporta igual que m 
+    cout << *m << endl; // imprime H, desreferencia al puntero y accede al caracter en la posicion 0
 }
 
 // Aplicamos Aritmetica de punteros para la suma
-void sumaArreglo(int arr[5], int n){
+void sumaArreglo(int arr[5], int n){ 
         
         int suma =0;
         for(int i= 0; i <n ; ++i){
@@ -35,7 +37,6 @@ int main(){
 
     int arr[] = {1,2,3,4,5};
 
-    sumaArreglo(arr,5);
 
     int *ptr1 = arr;
     int *ptr2 = arr + 2;
@@ -45,14 +46,11 @@ int main(){
     cout << arr << endl; // Te da la direccion del primer elemento
     cout << &arr[0] <<endl; // arr == &arr[0]
 
-    //sumaArreglo(arr, n);
 
     mostrarCadena();
 
     int t = 2;
     cout << cuadrado(&t)<<endl;
-   
-
 
     int y = 5;
 
@@ -61,8 +59,8 @@ int main(){
 
 
     int n = 10;
-    cout << &n <<endl;
-    cout << *&n <<endl;
+    cout << &n <<endl; // direccion de n
+    cout << *&n <<endl; // valor de n
 
     //Declaracion de un puntero
 
@@ -76,10 +74,9 @@ int main(){
     char c = 'A';
     char *ptrch = &c;
 
-    cout << "La direccion de c es: " << ptrch <<endl;
-    cout << "El valor de c es: "  << *ptrch << endl;
+    cout << "La direccion de c es: " << ptrch <<endl; // este se interpreta como una cadena
+    // si quieres imprimir la direccion en si deberias usar (void*)ptrch
+    cout << "El valor de c es: "  << *ptrch << endl; // este 
     
-
-
   return 0; 
 }
