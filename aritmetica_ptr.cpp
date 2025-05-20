@@ -26,5 +26,6 @@ int main(){
 
     //COMPARACION DE PUNTEROS: se pueden comparar mediante operadores relacionales como "==", "<=", ">=" y "!="
 
+    // Recordemos que: arr[3] == *(arr+3)
     return 0;
 }
